@@ -19,6 +19,7 @@
     "mongoose": "^7.6.3",
     "mongose": "^0.0.2-security",
     "nodemon": "^3.0.1",
-    "react-router-dom": "^6.17.0"
+    "react-router-dom": "^6.17.0",
+    "redux-persist": "^6.0.0"
   }
 }
