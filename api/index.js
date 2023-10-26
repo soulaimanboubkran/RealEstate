@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "../api/routes/user.route.js"
 import authRouter from "../api/routes/auth.route.js"
+import  coockieParser from 'cookie-parser'
+
 dotenv.config();
 mongoose.connect(process.env.MONGO).then(()=>{
     console.log("mongodb  connected ✨")
@@ -16,7 +18,7 @@ app.listen(4000,()=>{
     console.log('is running  ✨ ')
 })
 app.use(express.json())
-
+app.use(coockieParser());
 app.use("/api/user",userRouter)
 app.use("/api/auth",authRouter)
 
