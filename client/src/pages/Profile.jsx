@@ -30,6 +30,8 @@ export default function Profile() {
 
   const dispatch = useDispatch();
 
+
+  
   useEffect(() => {
     if (file) {
       handleFileUpload(file);
@@ -59,10 +61,17 @@ export default function Profile() {
       }
     );
   };
+
+
+
+  
   const handleChange=(e)=>{
     setFormData({...formData,[e.target.id]:e.target.value})
 
   }
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -75,6 +84,7 @@ export default function Profile() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
+
       if (data.success === false) {
         dispatch(updateUserFailure(data.message));
         return;
@@ -82,6 +92,7 @@ export default function Profile() {
 
       dispatch(updateUserSuccess(data));
       setUpdateSuccess(true);
+
     } catch (error) {
       dispatch(updateUserFailure(error.message));
     }
@@ -139,14 +150,24 @@ export default function Profile() {
           id='password'
           className='border p-3 rounded-lg'
         />
-        <button className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'>
-          update
+
+
+
+          <button
+          disabled={loading}
+          className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'
+        >
+          {loading ? 'Loading...' : 'Update'}
         </button>
       </form>
       <div className='flex justify-between mt-5'>
         <span className='text-red-700 cursor-pointer'>Delete account</span>
         <span className='text-red-700 cursor-pointer'>Sign out</span>
       </div>
+      <p className='text-red-700 font-bold  '>{error ? error : "" }</p>
+      <p className='text-green-700 mt-5 font-bold'>
+        {updateSuccess ? `User is updated successfully! `: ''}
+      </p>
     </div>
   )
 }
