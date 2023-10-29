@@ -6,6 +6,7 @@ import About from './pages/About';
 import Profile from './pages/Profile';
 import Header from './components/Header';
 import PriveteRoute from './components/PriveteRoute';
+import CreateListing from './pages/create-listing';
 
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
     <Route element={<PriveteRoute/>}>
           <Route path='/profile' element={<Profile />} />
     </Route>
+    <Route path='/create-listing' element={<CreateListing/>} />
       </Routes>
     </BrowserRouter>
   )
