@@ -70,6 +70,14 @@ const storeImage = async(file)=>{
         );
       });
 }
+
+const handleRemoveImage = (index) => {
+  setFormData({
+    ...formData,
+    imageUrls: formData.imageUrls.filter((_, i) => i !== index),
+  });
+};
+
 console.log(files)
   return (
     <main className='p-3 max-w-4xl mx-auto'>
@@ -209,7 +217,7 @@ console.log(files)
               />
               <button
                 type='button'
-              
+              onClick={()=>handleRemoveImage(index)}
                 className='p-3 text-red-700 rounded-lg uppercase hover:opacity-75'
               >
                 Delete
