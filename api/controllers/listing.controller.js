@@ -12,6 +12,8 @@ export const createListing = async(req,res,next)=>{
         next(error)
     }
 }
+
+
 export const deleteLstings = async(req,res,next)=>{
    const listing = await Listing.findById(req.params.id);
 if(!listing){
@@ -28,6 +30,7 @@ res.status(200).json('listings has been deleleted!')
     next(error);
 }
 }
+
 export const updateListing = async (req, res, next) => {
     const listing = await Listing.findById(req.params.id);
     if (!listing) {
