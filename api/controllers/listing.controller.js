@@ -64,3 +64,11 @@ export const updateListing = async (req, res, next) => {
     }
   };
   
+  export const getListings = async (req, res, next) => {
+    try {
+     
+    } catch (error) {
+      next(error);
+    }
+  };
+  
