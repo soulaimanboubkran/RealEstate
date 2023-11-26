@@ -9,6 +9,7 @@ import PriveteRoute from './components/PriveteRoute';
 import CreateListing from './pages/create-listing';
 import UpdateListing from './pages/updateListing';
 import Listing from './pages/Listing';
+import Search from './pages/Search';
 
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
         <Route path='/sign-up' element={<SignUp />} />
         <Route path='/about' element={<About />} />
         <Route path='/listing/:listingId' element={<Listing/>} />
+        <Route path='/search' element={<Search />} />
     <Route element={<PriveteRoute/>}>
           <Route path='/profile' element={<Profile />} />
     <Route path='/create-listing' element={<CreateListing/>} />
